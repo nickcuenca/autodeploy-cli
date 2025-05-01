@@ -19,7 +19,7 @@ def build_image(version="latest"):
 def run_container():
     print("[+] Running container on http://localhost:8080 ...")
     try:
-        subprocess.run(["docker", "run", "-d", "-p", "8080:8080", "autodeploy-app"], check=True)
+        subprocess.run(["docker-compose", "up", "-d"], check=True)
         print("Container is running.")
     except subprocess.CalledProcessError as e:
         print(f"[!] Error running container: {e}")
