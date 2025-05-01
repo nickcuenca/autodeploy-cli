@@ -6,7 +6,10 @@ import sys
 def build_image(version="latest"):
     print(f"[+] Building Docker image {version}...")
     try:
-        subprocess.run(["docker", "build", "-t", f"autodeploy-app:{version}", "."], check=True)
+        subprocess.run(
+            ["docker", "build", "-t", f"autodeploy-app:{version}", "."],
+            check=True
+        )
         # Save the successful version to a file
         with open("last_successful_version.txt", "w") as f:
             f.write(version)
